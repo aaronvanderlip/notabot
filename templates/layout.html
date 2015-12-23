@@ -1,29 +1,50 @@
 <!doctype html>
 <meta charset="utf-8">
-<link rel="stylesheet" href="{{ '/static/style.css'|url }}">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{{ '/static/css/bootstrap.min.css'|url }}">
+<link rel="stylesheet" href="{{ '/static/css/bootstrap-theme.min.css'|url }}">
 <title>{% block title %}Welcome{% endblock %} — notabot</title>
 <body>
-  <header>
-    <h1>notabot</h1>
-    <nav>
-      <ul class="nav navbar-nav">
-        <li{% if this._path == '/' %} class="active"{% endif
-          %}><a href="{{ '/'|url }}">Welcome</a></li>
-        {% for href, title in [
-          ['/blog', 'Blog'],
-          ['/projects', 'Projects'],
-          ['/about', 'About']
-        ] %}
-          <li{% if this.is_child_of(href) %} class="active"{% endif
-            %}><a href="{{ href|url }}">{{ title }}</a></li>
-        {% endfor %}
-      </ul>
-    </nav>
-  </header>
-  <div class="page">
-    {% block body %}{% endblock %}
-  </div>
-  <footer>
-    &copy; Copyright 2015 by Aaron VanDerlip.
-  </footer>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <header>
+                    <h1>notabot</h1>
+                    <nav>
+                        <!--
+                        <ul class="nav navbar-nav">
+                            <li{% if this._path == '/' %} class="active"{% endif
+                                                          %}></li>
+                            {% for href, title in [
+                            ] %}
+                            <li{% if this.is_child_of(href) %} class="active"{% endif
+                                                               %}><a href="{{ href|url }}">{{ title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        -->
+                    </nav>
+                </header>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-2">
+                {% block body %}{% endblock %}
+            </div>
+            <div class="col-md-2">
+                <!--
+                <a href="https://github.com/aaronvanderlip">https://github.com/aaronvanderlip</a>
+                -->
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <footer>
+                    &copy; Copyright 2015 by Aaron VanDerlip.
+                </footer>
+            </div>
+        </div>
+    </div>
 </body>

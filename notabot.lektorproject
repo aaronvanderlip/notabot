@@ -1,2 +1,10 @@
 [project]
 name = notabot
+
+
+
+[servers.production]
+name = Production
+enabled = yes
+default = yes
+target=rsync://ruralmind@ruralmind.org/home/ruralmind/webapps/lektor_notabot
